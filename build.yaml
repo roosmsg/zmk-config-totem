@@ -1,6 +1,16 @@
 include:
+  # Standalone: left half connects to the computer directly
   - board: seeeduino_xiao_ble
     shield: totem_left
   - board: seeeduino_xiao_ble
     shield: totem_right
-# there is no settingsreset (needed) for the XIAO
+  # Dongle: a third XIAO BLE plugged into the computer, both halves are peripherals
+  - board: seeeduino_xiao_ble
+    shield: totem_dongle
+  - board: seeeduino_xiao_ble
+    shield: totem_left
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: totem_left_for_dongle-seeeduino_xiao_ble-zmk
+  # Flash to every board before switching between standalone and dongle setups
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
