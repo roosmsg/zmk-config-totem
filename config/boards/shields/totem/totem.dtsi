@@ -31,7 +31,6 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
         
         diode-direction = "col2row"; 
         row-gpios
@@ -47,45 +46,46 @@
         display-name = "TOTEM";
         transform = <&default_transform>;
         kscan = <&kscan0>;
-        keys  //                     w   h    x    y  rot  rx  ry
-            = <&key_physical_attrs 100 100  100   50 0 0 0>
-            , <&key_physical_attrs 100 100  200   25 0 0 0>
-            , <&key_physical_attrs 100 100  300    0 0 0 0>
-            , <&key_physical_attrs 100 100  400   25 0 0 0>
-            , <&key_physical_attrs 100 100  500   35 0 0 0>
-            , <&key_physical_attrs 100 100  800   35 0 0 0>
-            , <&key_physical_attrs 100 100  900   25 0 0 0>
-            , <&key_physical_attrs 100 100 1000    0 0 0 0>
-            , <&key_physical_attrs 100 100 1100   25 0 0 0>
-            , <&key_physical_attrs 100 100 1200   50 0 0 0>
-            , <&key_physical_attrs 100 100  100  150 0 0 0>
-            , <&key_physical_attrs 100 100  200  125 0 0 0>
-            , <&key_physical_attrs 100 100  300  100 0 0 0>
-            , <&key_physical_attrs 100 100  400  125 0 0 0>
-            , <&key_physical_attrs 100 100  500  135 0 0 0>
-            , <&key_physical_attrs 100 100  800  135 0 0 0>
-            , <&key_physical_attrs 100 100  900  125 0 0 0>
-            , <&key_physical_attrs 100 100 1000  100 0 0 0>
-            , <&key_physical_attrs 100 100 1100  125 0 0 0>
-            , <&key_physical_attrs 100 100 1200  150 0 0 0>
-            , <&key_physical_attrs 100 100    0  250 0 0 0>
-            , <&key_physical_attrs 100 100  100  250 0 0 0>
-            , <&key_physical_attrs 100 100  200  225 0 0 0>
-            , <&key_physical_attrs 100 100  300  200 0 0 0>
-            , <&key_physical_attrs 100 100  400  225 0 0 0>
-            , <&key_physical_attrs 100 100  500  235 0 0 0>
-            , <&key_physical_attrs 100 100  800  235 0 0 0>
-            , <&key_physical_attrs 100 100  900  225 0 0 0>
-            , <&key_physical_attrs 100 100 1000  200 0 0 0>
-            , <&key_physical_attrs 100 100 1100  225 0 0 0>
-            , <&key_physical_attrs 100 100 1200  250 0 0 0>
-            , <&key_physical_attrs 100 100 1300  250 0 0 0>
-            , <&key_physical_attrs 100 100  300  330 0 0 0>
-            , <&key_physical_attrs 100 100  400  330 0 0 0>
-            , <&key_physical_attrs 100 100  500  330 0 0 0>
-            , <&key_physical_attrs 100 100  800  330 0 0 0>
-            , <&key_physical_attrs 100 100  900  330 0 0 0>
-            , <&key_physical_attrs 100 100 1000  330 0 0 0>
+        // Key geometry from upstream PR GEIGEIGEIST/zmk-config-totem#54 (inrumi)
+        keys  //                     w   h    x    y     rot   rx   ry
+            = <&key_physical_attrs 105 100   77  151 (-1000)  130  201>
+            , <&key_physical_attrs 105 100  196   60  (-400)  249  110>
+            , <&key_physical_attrs 105 100  317    0       0    0    0>
+            , <&key_physical_attrs 105 100  423   49       0    0    0>
+            , <&key_physical_attrs 105 100  529   65       0    0    0>
+            , <&key_physical_attrs 105 100  868   65       0    0    0>
+            , <&key_physical_attrs 105 100  974   49       0    0    0>
+            , <&key_physical_attrs 105 100 1080    0       0    0    0>
+            , <&key_physical_attrs 105 100 1200   60     400 1253  110>
+            , <&key_physical_attrs 105 100 1319  152    1000 1372  202>
+            , <&key_physical_attrs 105 100   95  250 (-1000)  147  300>
+            , <&key_physical_attrs 105 100  203  160  (-400)  256  210>
+            , <&key_physical_attrs 105 100  317  100       0    0    0>
+            , <&key_physical_attrs 105 100  423  149       0    0    0>
+            , <&key_physical_attrs 105 100  529  165       0    0    0>
+            , <&key_physical_attrs 105 100  868  166       0    0    0>
+            , <&key_physical_attrs 105 100  974  149       0    0    0>
+            , <&key_physical_attrs 105 100 1080  100       0    0    0>
+            , <&key_physical_attrs 105 100 1193  160     400 1246  210>
+            , <&key_physical_attrs 105 100 1302  250    1000 1355  300>
+            , <&key_physical_attrs 105 100    0  323 (-1000)   52  373>
+            , <&key_physical_attrs 105 100  112  348 (-1000)  165  398>
+            , <&key_physical_attrs 105 100  210  260  (-400)  263  310>
+            , <&key_physical_attrs 105 100  317  200       0    0    0>
+            , <&key_physical_attrs 105 100  423  249       0    0    0>
+            , <&key_physical_attrs 105 100  529  265       0    0    0>
+            , <&key_physical_attrs 105 100  868  266       0    0    0>
+            , <&key_physical_attrs 105 100  974  249       0    0    0>
+            , <&key_physical_attrs 105 100 1080  200       0    0    0>
+            , <&key_physical_attrs 105 100 1186  260     400 1239  310>
+            , <&key_physical_attrs 105 100 1285  349    1000 1338  399>
+            , <&key_physical_attrs 105 100 1397  323    1000 1450  373>
+            , <&key_physical_attrs 105 100  393  371       0    0    0>
+            , <&key_physical_attrs 105 100  511  387    1500  563  437>
+            , <&key_physical_attrs 105 100  619  432    3000  672  482>
+            , <&key_physical_attrs 105 100  778  432 (-3000)  831  482>
+            , <&key_physical_attrs 105 100  886  387 (-1500)  939  437>
+            , <&key_physical_attrs 105 100 1003  371       0    0    0>
             ;
     };
 };
