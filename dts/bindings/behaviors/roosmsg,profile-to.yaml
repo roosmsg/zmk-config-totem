@@ -1,0 +1,4 @@
+description: Switch layer while retaining the selected TOTEM typing profile
+compatible: "roosmsg,profile-to"
+include: one_param.yaml
+
