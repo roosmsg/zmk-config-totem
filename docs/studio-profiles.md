@@ -1,12 +1,11 @@
-# Drie profielen via ZMK Studio
+# Twee profielen via ZMK Studio
 
-Deze firmware biedt in **Layout:** drie keuzes voor dezelfde Totem met 38 toetsen:
+Deze firmware biedt in **Layout:** twee keuzes voor dezelfde Totem met 38 toetsen:
 
 | Layout | Gebruik | Basislaag onder Layers |
 | --- | --- | --- |
-| Miryoku QWERTY | Dagelijks typen; oorspronkelijke standaard | MIR QWERTY |
-| Miryoku Colemak-DH | Oefenen met Colemak-DH | MIR Colemak-DH |
-| Shamal QWERTY | Shamal-lagen en combo's | SH Base |
+| Shamal QWERTY | Dagelijks typen; oorspronkelijke standaard | SH Base |
+| Miryoku Colemak-DH | Oefenen met Miryoku en Colemak-DH | MIR Colemak-DH |
 
 De extra firmwaremodule koppelt de fysieke layoutkeuze aan het actieve profiel.
 ZMK Studio zelf hoeft niet aangepast te worden. Alleen de profielkeuze verandert;
@@ -35,7 +34,7 @@ de 38 posities en de opgeslagen toetsbewerkingen blijven op hun plaats.
 5. Verbind Studio via USB met de linkerhelft of, bij de dongle-opstelling, de dongle.
 6. Kies **Restore Stock Settings**, zodat oude Studio-bindings niet de nieuwe
    keymaps overschrijven. Maak zo nodig opnieuw verbinding om de lijst te verversen.
-7. Kies **Miryoku QWERTY** onder **Layout:** en klik op het opslagpictogram.
+7. Kies **Shamal QWERTY** onder **Layout:** en klik op het opslagpictogram.
 
 Voor deze keymap-update is `settings_reset` normaal niet nodig. Dat bestand is
 alleen bedoeld voor het resetten van instellingen, bijvoorbeeld bij het wisselen
@@ -49,12 +48,12 @@ de bijpassende peripheral-firmware en opnieuw koppelen.
   wacht de firmware tot die toetsen losgelaten zijn.
 - Klik op het **opslagpictogram** om de keuze te onthouden na herstart. Zonder
   opslaan is de keuze tijdelijk; na herstart wordt de eerder opgeslagen keuze
-  hersteld. De oorspronkelijke fabriekskeuze is Miryoku QWERTY.
-- **Layers** toont alle 16 lagen. Selecteer daar de bijbehorende basislaag om die
+  hersteld. De oorspronkelijke fabriekskeuze is Shamal QWERTY (laag 0, de opstartlaag van ZMK).
+- **Layers** toont alle 15 lagen. Selecteer daar de bijbehorende basislaag om die
   te bekijken of te bewerken; Studio selecteert die editorlaag niet automatisch
   wanneer je een ander profiel kiest.
-- De twee Miryoku-alfabetten delen hun navigatie-, nummer-, symbool-, muis- en
-  medialagen. Een wijziging aan zo'n laag geldt voor beide Miryoku-profielen.
+- De Miryoku-lagen (navigatie, nummers, symbolen, muis, media, functie en Tap)
+  horen alleen bij het profiel Miryoku Colemak-DH; Shamal heeft eigen lagen.
 - Laat de volgorde en het aantal lagen intact. Basissen horen onder hun
   functielagen te blijven; de Shamal-combo's gebruiken vaste laagnummers.
 - Gebruik bij Shamal **Profile: To Layer** voor een blijvende laagwissel. Die
@@ -72,15 +71,16 @@ Bron: [Miryoku ZMK](https://github.com/manna-harbour/miryoku_zmk), commit
 `559aa4beae75cb3206ab411b7da2adb9665c6896`. Copyright 2022 Manna Harbour.
 De geselecteerde laagdefinities staan in `sources/miryoku_layers.h`.
 
-- QWERTY en Colemak-DH gebruiken de standaard Miryoku-duimfuncties en
-  tap-preferred hold-taps met 200 ms. De aparte Tap-laag gebruikt Colemak-DH.
+- Alleen Miryoku Colemak-DH (de standaard Miryoku-letterindeling) is opgenomen, met
+  de standaard Miryoku-duimfuncties en tap-preferred hold-taps van 200 ms. De
+  aparte Tap-laag gebruikt dezelfde letters. Miryoku QWERTY is bewust weggelaten.
 - De twee extra Totem-toetsen dupliceren de buitenste bovenste toetsen, conform
   de officiële Miryoku-Totem-mapping.
 - Clipboard-acties gebruiken de Windows-variant (Ctrl+C/V/X/Z/Y).
 - RGB- en externe voedingsfuncties zijn leeg omdat deze Totem-definitie daarvoor
   geen hardware heeft. Muisbesturing, media en Bluetooth zijn behouden.
 - De oorspronkelijke Base/Extra-dubbeltikfuncties keren beide terug naar de
-  momenteel in Studio gekozen Miryoku-basis. Ze veranderen het profiel niet.
+  Miryoku-basis (Colemak-DH). Ze veranderen het profiel niet.
   Dubbeltikken om andere Miryoku-lagen vast te zetten blijft beschikbaar.
 
 ### Shamal

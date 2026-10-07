@@ -2,7 +2,7 @@
 #include "profile_state.h"
 
 bool profile_request(struct profile_state *state, uint8_t base) {
-    if (base != MIR_QWERTY && base != MIR_COLEMAK && base != SH_BASE) {
+    if (base != MIR_COLEMAK && base != SH_BASE) {
         return false;
     }
     state->requested = base;

@@ -213,13 +213,13 @@
     };
     keymap {
         compatible = "zmk,keymap";
-        mir_qwerty {
-            display-name = "MIR QWERTY";
+        sh_base {
+            display-name = "SH Base";
             bindings = <
                                           &kp Q                         &kp W                         &kp E                         &kp R                         &kp T                         &kp Y                         &kp U                         &kp I                         &kp O                         &kp P
-                                          &miryoku_mt LGUI A            &miryoku_mt LALT S            &miryoku_mt LCTRL D           &miryoku_mt LSHFT F           &kp G                         &kp H                         &miryoku_mt LSHFT J           &miryoku_mt LCTRL K           &miryoku_mt LALT L            &miryoku_mt LGUI SQT
-            &kp Q                         &miryoku_lt MIR_BUTTON Z      &miryoku_mt RALT X            &kp C                         &kp V                         &kp B                         &kp N                         &kp M                         &kp COMMA                     &miryoku_mt RALT DOT          &miryoku_lt MIR_BUTTON SLASH  &kp P
-                                                                                                      &miryoku_lt MIR_MEDIA ESC     &miryoku_lt MIR_NAV SPACE     &miryoku_lt MIR_MOUSE TAB     &miryoku_lt MIR_SYM RET       &miryoku_lt MIR_NUM BSPC      &miryoku_lt MIR_FUN DEL
+                                          &kp A                         &kp S                         &kp D                         &kp F                         &kp G                         &kp H                         &kp J                         &kp K                         &kp L                         &kp SEMICOLON
+            &kp C_PLAY_PAUSE              &kp Z                         &kp X                         &kp C                         &kp V                         &kp B                         &kp N                         &kp M                         &kp COMMA                     &kp DOT                       &kp FSLH                      &kp C_MUTE
+                                                                                                      &kp RCTRL                     &kp LEFT_ALT                  &kp RIGHT_SHIFT               &kp SPACE                     &profile_to SH_SYM            &kp LEFT_WIN
             >;
         };
 
@@ -230,16 +230,6 @@
                                           &miryoku_mt LGUI A            &miryoku_mt LALT R            &miryoku_mt LCTRL S           &miryoku_mt LSHFT T           &kp G                         &kp M                         &miryoku_mt LSHFT N           &miryoku_mt LCTRL E           &miryoku_mt LALT I            &miryoku_mt LGUI O
             &kp Q                         &miryoku_lt MIR_BUTTON Z      &miryoku_mt RALT X            &kp C                         &kp D                         &kp V                         &kp K                         &kp H                         &kp COMMA                     &miryoku_mt RALT DOT          &miryoku_lt MIR_BUTTON SLASH  &kp SQT
                                                                                                       &miryoku_lt MIR_MEDIA ESC     &miryoku_lt MIR_NAV SPACE     &miryoku_lt MIR_MOUSE TAB     &miryoku_lt MIR_SYM RET       &miryoku_lt MIR_NUM BSPC      &miryoku_lt MIR_FUN DEL
-            >;
-        };
-
-        sh_base {
-            display-name = "SH Base";
-            bindings = <
-                                          &kp Q                         &kp W                         &kp E                         &kp R                         &kp T                         &kp Y                         &kp U                         &kp I                         &kp O                         &kp P
-                                          &kp A                         &kp S                         &kp D                         &kp F                         &kp G                         &kp H                         &kp J                         &kp K                         &kp L                         &kp SEMICOLON
-            &kp C_PLAY_PAUSE              &kp Z                         &kp X                         &kp C                         &kp V                         &kp B                         &kp N                         &kp M                         &kp COMMA                     &kp DOT                       &kp FSLH                      &kp C_MUTE
-                                                                                                      &kp RCTRL                     &kp LEFT_ALT                  &kp RIGHT_SHIFT               &kp SPACE                     &profile_to SH_SYM            &kp LEFT_WIN
             >;
         };
 

@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const mir = fs.readFileSync(path.join(root, 'sources/miryoku_layers.h'), 'utf8');
 const shamal = fs.readFileSync(path.join(root, 'sources/shamal.keymap'), 'utf8');
-const mirLayers = { BASE: 'MIR_QWERTY', EXTRA: 'MIR_COLEMAK', TAP: 'MIR_TAP', BUTTON: 'MIR_BUTTON', NAV: 'MIR_NAV', MOUSE: 'MIR_MOUSE', MEDIA: 'MIR_MEDIA', NUM: 'MIR_NUM', SYM: 'MIR_SYM', FUN: 'MIR_FUN' };
+const mirLayers = { BASE: 'MIR_COLEMAK', EXTRA: 'MIR_COLEMAK', TAP: 'MIR_TAP', BUTTON: 'MIR_BUTTON', NAV: 'MIR_NAV', MOUSE: 'MIR_MOUSE', MEDIA: 'MIR_MEDIA', NUM: 'MIR_NUM', SYM: 'MIR_SYM', FUN: 'MIR_FUN' };
 const shLayers = ['SH_BASE', 'SH_SYM', 'SH_NAV', 'SH_NUM', 'SH_FUN', 'SH_SETTINGS'];
 
 function splitArgs(text) {
@@ -92,13 +92,13 @@ for (const match of shamal.matchAll(/(combo_[\w+]+)\s*\{([^]*?)\};/g)) {
 }
 
 const mirDefinitions = [
-  ['mir_qwerty', 'MIR QWERTY', 'BASE_QWERTY'], ['mir_colemak', 'MIR Colemak-DH', 'BASE_COLEMAKDH'],
+  ['mir_colemak', 'MIR Colemak-DH', 'BASE_COLEMAKDH'],
   ['mir_tap', 'MIR Tap Colemak', 'TAP_COLEMAKDH'], ['mir_button', 'MIR Button', 'BUTTON'],
   ['mir_nav', 'MIR Navigation', 'NAV'], ['mir_mouse', 'MIR Mouse', 'MOUSE'], ['mir_media', 'MIR Media', 'MEDIA'],
   ['mir_num', 'MIR Numbers', 'NUM'], ['mir_sym', 'MIR Symbols', 'SYM'], ['mir_fun', 'MIR Function', 'FUN'],
 ];
 const layers = mirDefinitions.map(([name, label, variant]) => layer(name, label, mirBindings(variant)));
-layers.splice(2, 0, layer('sh_base', shLabels[0], shKeys[0]));
+layers.unshift(layer('sh_base', shLabels[0], shKeys[0]));
 for (let i = 1; i < shKeys.length; i++) layers.push(layer('sh_' + shNames[i], shLabels[i], shKeys[i]));
 
 let dances = '';
@@ -119,4 +119,4 @@ if (process.argv.includes('--check')) {
 } else {
   fs.writeFileSync(output, content);
 }
-console.log('Verified 16 layers of 38 keys and 7 remapped Shamal combos.');
+console.log('Verified 15 layers of 38 keys and 7 remapped Shamal combos.');

@@ -23,8 +23,5 @@
     kscan = <&mock_kscan>;
 };
 
-&physical_layout_shamal {
-    kscan = <&mock_kscan>;
-};
 
 /delete-node/ &kscan0;

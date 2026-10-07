@@ -30,6 +30,6 @@ TOTEM is a 38 key column-staggered split keyboard running [ZMK](https://zmk.dev/
 - repeat this process with the right half and the `totem_right-seeeduino_xiao_ble-zmk.uf2` file.
 # Studio-profielen
 
-Deze branch voegt **Miryoku QWERTY**, **Miryoku Colemak-DH** en **Shamal QWERTY**
+Deze branch voegt **Shamal QWERTY** (standaard) en **Miryoku Colemak-DH**
 toe aan de **Layout:**-keuze van ZMK Studio.
 Zie [installatie, gebruik en aanpassingen](docs/studio-profiles.md).

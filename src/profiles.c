@@ -12,7 +12,7 @@
 #include <zmk/physical_layouts.h>
 #include "profile_state.h"
 
-static struct profile_state state = {.current = MIR_QWERTY, .requested = MIR_QWERTY};
+static struct profile_state state = {.current = SH_BASE, .requested = SH_BASE};
 K_MUTEX_DEFINE(profile_mutex);
 
 static void to_layer(uint8_t layer) { zmk_keymap_layer_to(layer); }
@@ -34,7 +34,7 @@ static uint8_t selected_base(void) {
             return SH_BASE;
         }
     }
-    return MIR_QWERTY;
+    return SH_BASE;
 }
 
 static void sync_profile(void) {
