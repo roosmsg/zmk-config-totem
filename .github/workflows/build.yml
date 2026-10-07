@@ -1,5 +1,23 @@
+name: Build TOTEM profiles
 on: [push, pull_request, workflow_dispatch]
 
+permissions:
+  contents: read
+
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/generate-keymap.mjs --check
+      - run: node --test tests/keymap.test.mjs
+      - name: Test firmware profile logic
+        run: |
+          gcc -std=c11 -Wall -Wextra -Werror -Isrc -Idts src/profile_state.c tests/profile_state_test.c -o /tmp/test-totem-profiles
+          /tmp/test-totem-profiles
   build:
+    needs: validate
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3

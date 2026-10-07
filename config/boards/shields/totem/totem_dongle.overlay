@@ -19,4 +19,9 @@
     kscan = <&mock_kscan>;
 };
 
+&physical_layout_colemak {
+    kscan = <&mock_kscan>;
+};
+
+
 /delete-node/ &kscan0;
