@@ -1,20 +1,7 @@
+# Temporary diagnostic build: right half with USB logging (connect via USB, read the COM port).
 include:
-  # Standalone: left half connects to the computer directly
-  - board: seeeduino_xiao_ble
-    shield: totem_left
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
   - board: seeeduino_xiao_ble
     shield: totem_right
-  # Dongle: a third XIAO BLE plugged into the computer, both halves are peripherals
-  - board: seeeduino_xiao_ble
-    shield: totem_dongle
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
-  - board: seeeduino_xiao_ble
-    shield: totem_left
-    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-    artifact-name: totem_left_for_dongle-seeeduino_xiao_ble-zmk
-  # Flash to every board before switching between standalone and dongle setups
-  - board: seeeduino_xiao_ble
-    shield: settings_reset
+    snippet: zmk-usb-logging
+    cmake-args: -DCONFIG_ZMK_USB_LOGGING=y -DCONFIG_ZMK_LOG_LEVEL_DBG=y
+    artifact-name: totem_right_DEBUG_usb_logging
