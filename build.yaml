@@ -1,7 +1,15 @@
-# Temporary diagnostic build: right half with USB logging (connect via USB, read the COM port).
+# Temporary diagnostic builds for the right half.
 include:
+  # Right half with USB logging (still a split peripheral of the dongle).
   - board: seeeduino_xiao_ble
     shield: totem_right
     snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_USB_LOGGING=y -DCONFIG_ZMK_LOG_LEVEL_DBG=y
     artifact-name: totem_right_DEBUG_usb_logging
+  # Right half as an independent USB keyboard: no split, no dongle.
+  # Studio + profile module are enabled because the keymap uses &profile_to.
+  - board: seeeduino_xiao_ble
+    shield: totem_right
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_SPLIT=n -DCONFIG_ZMK_USB=y -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n -DCONFIG_TOTEM_STUDIO_PROFILES=y -DCONFIG_ZMK_KEYBOARD_NAME="\"TOTEM-R-USB\""
+    artifact-name: totem_right_STANDALONE_usb
