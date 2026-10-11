@@ -1,11 +1,12 @@
-# Twee profielen via ZMK Studio
+# Drie profielen via ZMK Studio
 
-Deze firmware biedt in **Layout:** twee keuzes voor dezelfde Totem met 38 toetsen:
+Deze firmware biedt in **Layout:** drie keuzes voor dezelfde Totem met 38 toetsen:
 
 | Layout | Gebruik | Basislaag onder Layers |
 | --- | --- | --- |
 | Shamal QWERTY | Dagelijks typen; oorspronkelijke standaard | SH Base |
 | Miryoku Colemak-DH | Oefenen met Miryoku en Colemak-DH | MIR Colemak-DH |
+| Shamal2 QWERTY | Shamal-letters met Rolio46-duimen en -lagen | S2 Base |
 
 De extra firmwaremodule koppelt de fysieke layoutkeuze aan het actieve profiel.
 ZMK Studio zelf hoeft niet aangepast te worden. Alleen de profielkeuze verandert;
@@ -49,11 +50,12 @@ de bijpassende peripheral-firmware en opnieuw koppelen.
 - Klik op het **opslagpictogram** om de keuze te onthouden na herstart. Zonder
   opslaan is de keuze tijdelijk; na herstart wordt de eerder opgeslagen keuze
   hersteld. De oorspronkelijke fabriekskeuze is Shamal QWERTY (laag 0, de opstartlaag van ZMK).
-- **Layers** toont alle 15 lagen. Selecteer daar de bijbehorende basislaag om die
+- **Layers** toont alle 20 lagen. Selecteer daar de bijbehorende basislaag om die
   te bekijken of te bewerken; Studio selecteert die editorlaag niet automatisch
   wanneer je een ander profiel kiest.
 - De Miryoku-lagen (navigatie, nummers, symbolen, muis, media, functie en Tap)
-  horen alleen bij het profiel Miryoku Colemak-DH; Shamal heeft eigen lagen.
+  horen alleen bij het profiel Miryoku Colemak-DH; Shamal en Shamal2 hebben
+  elk eigen lagen (SH … en S2 …).
 - Laat de volgorde en het aantal lagen intact. Basissen horen onder hun
   functielagen te blijven; de Shamal-combo's gebruiken vaste laagnummers.
 - Gebruik bij Shamal **Profile: To Layer** voor een blijvende laagwissel. Die
@@ -98,6 +100,26 @@ Het oorspronkelijke bestand staat in `sources/shamal.keymap`.
   tot de oorspronkelijke Shamal-lagen.
 - Ongebruikte upstream hold-tap-behaviors zijn weggelaten. Laagwisselingen
   bewaren SH Base als onderliggende basis.
+
+### Shamal2 QWERTY (Shamal + Rolio46)
+
+Bron Rolio: [RolioFirmware](https://github.com/MickiusMousius/RolioFirmware),
+`boards/shields/rolio/rolio.keymap` (alleen de Windows-lagen). De definities staan in
+`sources/shamal2_rolio.mjs`.
+
+- **Letters en combo's** zijn die van Shamal QWERTY. De Shamal-combo's van de basislaag
+  werken ook in S2 Base; de D+F-Backspace-combo werkt zoals Rolio's Backspace:
+  tikken = Backspace, vasthouden = Ctrl+Backspace (woord wissen).
+- **Buitenste toetsen**: links Shift, rechts ' (Rolio's buitenste kolom).
+- **Duimen** (links → rechts): Win, Ctrl, *tik Enter / houd F-toetsen+navigatie*,
+  *tik Spatie / houd Numpad*, *tik of houd Symbolen / dubbeltik Numpad aan-uit*, Alt.
+- **Lagen**: S2 Symbols, S2 Number Pad, S2 F-keys/Nav en S2 Settings. Rolio's 46 toetsen
+  zijn teruggebracht naar 38: de buitenste kolom verhuisde naar de buitenste toetsen of
+  vrije posities (bijv. _ en - in Symbols, Del op de rechterduim in Symbols).
+- **S2 Settings**: houd Enter én Spatie tegelijk (een *tri-layer*). Bevat gewone
+  Bluetooth-profielkeuze, Bluetooth-wissen en USB/Bluetooth-wissel.
+- Niet overgenomen: de macOS-lagen, Rolio's Bluetooth-of-toets, USB-of-toets en
+  Shift/Caps Word, de encoders en de achtergrondverlichting (de TOTEM heeft die niet).
 
 ## Ontwikkeling en verificatie
 

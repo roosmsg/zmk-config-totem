@@ -33,6 +33,9 @@ static uint8_t selected_base(void) {
         if (strcmp(name, PROFILE_SHAMAL_NAME) == 0) {
             return SH_BASE;
         }
+        if (strcmp(name, PROFILE_SHAMAL2_NAME) == 0) {
+            return S2_BASE;
+        }
     }
     return SH_BASE;
 }

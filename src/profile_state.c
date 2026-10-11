@@ -2,7 +2,7 @@
 #include "profile_state.h"
 
 bool profile_request(struct profile_state *state, uint8_t base) {
-    if (base != MIR_COLEMAK && base != SH_BASE) {
+    if (base != MIR_COLEMAK && base != SH_BASE && base != S2_BASE) {
         return false;
     }
     state->requested = base;
@@ -35,9 +35,14 @@ bool profile_to(struct profile_state *state, uint32_t layer, const struct profil
     if (layer == PROFILE_RETURN) {
         layer = base;
     }
-    const bool allowed = layer == base ||
-        (base == SH_BASE ? layer >= SH_SYM && layer <= SH_SETTINGS
-                         : layer >= MIR_TAP && layer <= MIR_FUN);
+    bool allowed = layer == base;
+    if (base == SH_BASE) {
+        allowed |= layer >= SH_SYM && layer <= SH_SETTINGS;
+    } else if (base == MIR_COLEMAK) {
+        allowed |= layer >= MIR_TAP && layer <= MIR_FUN;
+    } else if (base == S2_BASE) {
+        allowed |= layer >= S2_SYMBOLS && layer <= S2_SETTINGS;
+    }
     if (!allowed) {
         return false; /* Also ignores a delayed tap dance from the previous profile. */
     }

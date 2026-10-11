@@ -16,7 +16,13 @@
 #define SH_NUM 12
 #define SH_FUN 13
 #define SH_SETTINGS 14
+#define S2_BASE 15
+#define S2_SYMBOLS 16
+#define S2_NUM 17
+#define S2_FKEYS 18
+#define S2_SETTINGS 19
 #define PROFILE_RETURN 255
 
 #define PROFILE_COLEMAK_NAME "Miryoku Colemak-DH"
 #define PROFILE_SHAMAL_NAME "Shamal QWERTY"
+#define PROFILE_SHAMAL2_NAME "Shamal2 QWERTY"

@@ -133,6 +133,20 @@
             tapping-term-ms = <200>;
             bindings = <&none>, <&profile_to MIR_FUN>;
         };
+        s2_sym_num: s2_sym_num {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "S2 Symbols / Numpad Lock";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&mo S2_SYMBOLS>, <&tog S2_NUM>;
+        };
+    };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        s2_settings_tri_layer {
+            if-layers = <S2_FKEYS S2_NUM>;
+            then-layer = <S2_SETTINGS>;
+        };
     };
     macros {
         bt_clear_0: bt_clear_0 {
@@ -209,6 +223,42 @@
             key-positions = <13 12>;
             timeout-ms = <50>;
             layers = <SH_NUM>;
+                };
+        s2_combo_enter {
+            bindings = <&kp ENTER>;
+            key-positions = <16 17>;
+            layers = <S2_BASE>;
+            timeout-ms = <50>;
+                };
+        s2_combo_tab {
+            bindings = <&kp TAB>;
+            key-positions = <0 1>;
+            require-prior-idle-ms = <50>;
+            layers = <S2_BASE>;
+                };
+        s2_combo_ctrl_backspace {
+            bindings = <&kp RC(BACKSPACE)>;
+            key-positions = <23 24>;
+            timeout-ms = <50>;
+            layers = <S2_BASE>;
+                };
+        s2_combo_quote {
+            bindings = <&kp SINGLE_QUOTE>;
+            key-positions = <29 28>;
+            timeout-ms = <50>;
+            layers = <S2_BASE>;
+                };
+        s2_combo_ctrl_shift {
+            bindings = <&kp LC(LEFT_SHIFT)>;
+            key-positions = <21 22>;
+            timeout-ms = <50>;
+            layers = <S2_BASE>;
+                };
+        s2_combo_backspace {
+            bindings = <&mt LC(BSPC) BSPC>;
+            key-positions = <12 13>;
+            timeout-ms = <50>;
+            layers = <S2_BASE>;
                 };
     };
     keymap {
@@ -360,6 +410,56 @@
                                           &kp TAB                       &trans                        &bt BT_NXT                    &bt BT_PRV                    &bt BT_CLR_ALL                &trans                        &bootloader                   &studio_unlock                &sys_reset                    &kp ENTER
             &trans                        &profile_to SH_FUN            &trans                        &out OUT_BLE                  &out OUT_USB                  &profile_to SH_SETTINGS       &trans                        &trans                        &trans                        &trans                        &profile_to SH_NAV            &trans
                                                                                                       &kp LCTRL                     &profile_to SH_BASE           &kp LEFT_SHIFT                &kp SPACE                     &profile_to SH_NUM            &kp RIGHT_ALT
+            >;
+        };
+
+        s2_base {
+            display-name = "S2 Base";
+            bindings = <
+                                          &kp Q                         &kp W                         &kp E                         &kp R                         &kp T                         &kp Y                         &kp U                         &kp I                         &kp O                         &kp P
+                                          &kp A                         &kp S                         &kp D                         &kp F                         &kp G                         &kp H                         &kp J                         &kp K                         &kp L                         &kp SEMICOLON
+            &kp LSHIFT                    &kp Z                         &kp X                         &kp C                         &kp V                         &kp B                         &kp N                         &kp M                         &kp COMMA                     &kp DOT                       &kp FSLH                      &kp SQT
+                                                                                                      &kp LGUI                      &kp LCTRL                     &lt S2_FKEYS ENTER            &lt S2_NUM SPACE              &s2_sym_num                   &kp LALT
+            >;
+        };
+
+        s2_symbols {
+            display-name = "S2 Symbols";
+            bindings = <
+                                          &kp N1                        &kp N2                        &kp N3                        &kp N4                        &kp N5                        &kp N6                        &kp N7                        &kp N8                        &kp N9                        &kp N0
+                                          &kp EXCL                      &kp AT                        &kp HASH                      &kp DLLR                      &kp PRCNT                     &kp CARET                     &kp AMPERSAND                 &kp STAR                      &kp LPAR                      &kp RPAR
+            &trans                        &kp LG(DOT)                   &kp LEFT_BRACE                &kp RIGHT_BRACE               &kp PIPE                      &kp EQUAL                     &kp MINUS                     &kp PLUS                      &kp LBKT                      &kp RBKT                      &kp BACKSLASH                 &kp UNDER
+                                                                                                      &trans                        &trans                        &trans                        &trans                        &trans                        &kp DEL
+            >;
+        };
+
+        s2_numpad {
+            display-name = "S2 Number Pad";
+            bindings = <
+                                          &kp N1                        &kp N2                        &kp N3                        &kp N4                        &kp N5                        &kp N6                        &kp N7                        &kp N8                        &kp N9                        &kp N0
+                                          &kp EXCL                      &kp AT                        &kp HASH                      &kp DLLR                      &kp PRCNT                     &kp CARET                     &kp N4                        &kp N5                        &mt LPAR N6                   &mt RPAR PLUS
+            &kp MINUS                     &trans                        &kp LEFT_BRACE                &kp RIGHT_BRACE               &kp PIPE                      &kp EQUAL                     &kp PRCNT                     &kp N1                        &mt COMMA N2                  &mt DOT N3                    &kp KP_DIVIDE                 &kp KP_MULTIPLY
+                                                                                                      &trans                        &trans                        &trans                        &trans                        &tog S2_NUM                   &kp N0
+            >;
+        };
+
+        s2_fkeys {
+            display-name = "S2 F-keys/Nav";
+            bindings = <
+                                          &kp F1                        &kp F2                        &kp F3                        &kp F4                        &kp F5                        &kp F6                        &kp F7                        &kp F8                        &kp F9                        &kp F10
+                                          &kp LG(H)                     &trans                        &kp C_PREV                    &kp C_PP                      &kp C_NEXT                    &kp HOME                      &kp UP                        &kp END                       &kp LA(PSCRN)                 &kp PG_UP
+            &kp ESC                       &kp F11                       &kp F12                       &kp C_VOL_DN                  &kp C_MUTE                    &kp C_VOL_UP                  &kp LEFT                      &kp DOWN                      &kp RIGHT                     &kp LG(LS(S))                 &kp PG_DN                     &kp LS(TAB)
+                                                                                                      &trans                        &trans                        &trans                        &trans                        &trans                        &trans
+            >;
+        };
+
+        s2_settings {
+            display-name = "S2 Settings";
+            bindings = <
+                                          &bt BT_SEL 0                  &bt BT_SEL 1                  &bt BT_SEL 2                  &bt BT_SEL 3                  &bt BT_SEL 4                  &kp N6                        &kp N7                        &kp N8                        &kp N9                        &kp N0
+                                          &trans                        &trans                        &trans                        &trans                        &trans                        &trans                        &kp N4                        &kp N5                        &kp N6                        &trans
+            &out OUT_TOG                  &trans                        &bt BT_CLR                    &trans                        &trans                        &trans                        &trans                        &kp N1                        &kp N2                        &kp N3                        &trans                        &trans
+                                                                                                      &trans                        &trans                        &trans                        &trans                        &trans                        &kp N0
             >;
         };
     };

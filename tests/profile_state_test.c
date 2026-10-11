@@ -92,6 +92,23 @@ int main(void) {
     profile_key(&s, 0, false);
     assert(!profile_apply(&s, &ops));
     assert(s.current == MIR_COLEMAK);
+
+    /* Shamal2 is a third typing base with its own auxiliary layers. */
+    assert(profile_request(&s, S2_BASE));
+    assert(profile_apply(&s, &ops));
+    assert(s.current == S2_BASE && active == (1U | (1U << S2_BASE)));
+    assert(profile_to(&s, S2_SYMBOLS, &ops));
+    assert(active == (1U | (1U << S2_BASE) | (1U << S2_SYMBOLS)));
+    assert(profile_to(&s, S2_SETTINGS, &ops));
+    assert(profile_to(&s, PROFILE_RETURN, &ops));
+    assert(active == (1U | (1U << S2_BASE)));
+    /* Layers of the other profiles stay unreachable from Shamal2 and vice versa. */
+    assert(!profile_to(&s, SH_SYM, &ops));
+    assert(!profile_to(&s, MIR_NAV, &ops));
+    assert(profile_request(&s, SH_BASE));
+    assert(profile_apply(&s, &ops));
+    assert(!profile_to(&s, S2_NUM, &ops));
+    assert(active == 1U);
     puts("Profile switching, held keys, layer isolation and profile return: PASS");
     return 0;
 }
