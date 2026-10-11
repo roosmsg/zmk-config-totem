@@ -111,6 +111,8 @@ Bron Rolio: [RolioFirmware](https://github.com/MickiusMousius/RolioFirmware),
   werken ook in S2 Base; de D+F-Backspace-combo werkt zoals Rolio's Backspace:
   tikken = Backspace, vasthouden = Ctrl+Backspace (woord wissen).
 - **Buitenste toetsen**: links Shift, rechts ' (Rolio's buitenste kolom).
+- **Rechtsboven**: de P-positie is Backspace (tikken) / Delete (vasthouden); P staat op de
+  plek van ; (in Shamal2 zit ; daardoor niet meer op de basislaag).
 - **Duimen** (links → rechts): Win, Ctrl, *tik Enter / houd F-toetsen+navigatie*,
   *tik Spatie / houd Numpad*, *tik of houd Symbolen / dubbeltik Numpad aan-uit*, Alt.
 - **Lagen**: S2 Symbols, S2 Number Pad, S2 F-keys/Nav en S2 Settings. Rolio's 46 toetsen

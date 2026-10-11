@@ -65,7 +65,9 @@ test('Shamal2 keeps Shamal letters and uses Rolio thumbs and outer keys', () => 
   const byName = Object.fromEntries(layers.map(l => [l[1], keys(l)]));
   const sh = byName.sh_base, s2 = byName.s2_base;
   assert.deepEqual(layers.slice(15).map(l => l[1]), ['s2_base', 's2_symbols', 's2_numpad', 's2_fkeys', 's2_settings']);
-  for (let i = 0; i < 32; i++) if (i !== 20 && i !== 31) assert.equal(s2[i], sh[i], 'letter position ' + i);
+  for (let i = 0; i < 32; i++) if (![9, 19, 20, 31].includes(i)) assert.equal(s2[i], sh[i], 'letter position ' + i);
+  assert.equal(s2[9], '&mt DEL BSPC');
+  assert.equal(s2[19], '&kp P');
   assert.equal(s2[20], '&kp LSHIFT');
   assert.equal(s2[31], '&kp SQT');
   assert.deepEqual(s2.slice(32), ['&kp LGUI', '&kp LCTRL', '&lt S2_FKEYS ENTER', '&lt S2_NUM SPACE', '&s2_sym_num', '&kp LALT']);

@@ -416,8 +416,8 @@
         s2_base {
             display-name = "S2 Base";
             bindings = <
-                                          &kp Q                         &kp W                         &kp E                         &kp R                         &kp T                         &kp Y                         &kp U                         &kp I                         &kp O                         &kp P
-                                          &kp A                         &kp S                         &kp D                         &kp F                         &kp G                         &kp H                         &kp J                         &kp K                         &kp L                         &kp SEMICOLON
+                                          &kp Q                         &kp W                         &kp E                         &kp R                         &kp T                         &kp Y                         &kp U                         &kp I                         &kp O                         &mt DEL BSPC
+                                          &kp A                         &kp S                         &kp D                         &kp F                         &kp G                         &kp H                         &kp J                         &kp K                         &kp L                         &kp P
             &kp LSHIFT                    &kp Z                         &kp X                         &kp C                         &kp V                         &kp B                         &kp N                         &kp M                         &kp COMMA                     &kp DOT                       &kp FSLH                      &kp SQT
                                                                                                       &kp LGUI                      &kp LCTRL                     &lt S2_FKEYS ENTER            &lt S2_NUM SPACE              &s2_sym_num                   &kp LALT
             >;
