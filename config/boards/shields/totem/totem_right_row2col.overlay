@@ -1,0 +1,6 @@
+/* DIAGNOSTIC ONLY: right half with the opposite diode direction. */
+#include "totem_right.overlay"
+
+&kscan0 {
+    diode-direction = "row2col";
+};

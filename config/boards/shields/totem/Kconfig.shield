@@ -9,3 +9,6 @@ config SHIELD_TOTEM_RIGHT
 
 config SHIELD_TOTEM_DONGLE
     def_bool $(shields_list_contains,totem_dongle)
+
+config SHIELD_TOTEM_RIGHT_ROW2COL
+    def_bool $(shields_list_contains,totem_right_row2col)
