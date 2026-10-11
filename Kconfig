@@ -1,0 +1,6 @@
+config TOTEM_STUDIO_PROFILES
+    bool "TOTEM profiles selected through ZMK Studio"
+    default y if ZMK_STUDIO && (SHIELD_TOTEM_LEFT || SHIELD_TOTEM_DONGLE)
+    depends on ZMK_STUDIO
+    depends on !ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL
+
