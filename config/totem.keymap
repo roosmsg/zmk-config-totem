@@ -140,6 +140,13 @@
             tapping-term-ms = <300>;
             bindings = <&mo S2_SYMBOLS>, <&tog S2_NUM>;
         };
+        s2_bspc_del: s2_bspc_del {
+            compatible = "zmk,behavior-mod-morph";
+            display-name = "S2 Backspace / Ctrl: Delete";
+            #binding-cells = <0>;
+            bindings = <&mt LC(BSPC) BSPC>, <&mt LC(DEL) DEL>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
     };
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -416,7 +423,7 @@
         s2_base {
             display-name = "S2 Base";
             bindings = <
-                                          &kp Q                         &kp W                         &kp E                         &kp R                         &kp T                         &kp Y                         &kp U                         &kp I                         &kp O                         &mt LC(BSPC) BSPC
+                                          &kp Q                         &kp W                         &kp E                         &kp R                         &kp T                         &kp Y                         &kp U                         &kp I                         &kp O                         &s2_bspc_del
                                           &kp A                         &kp S                         &kp D                         &kp F                         &kp G                         &kp H                         &kp J                         &kp K                         &kp L                         &kp P
             &kp LSHIFT                    &kp Z                         &kp X                         &kp C                         &kp V                         &kp B                         &kp N                         &kp M                         &kp COMMA                     &kp DOT                       &kp FSLH                      &kp SQT
                                                                                                       &kp LGUI                      &kp LCTRL                     &lt S2_FKEYS ENTER            &lt S2_NUM SPACE              &s2_sym_num                   &kp LALT
