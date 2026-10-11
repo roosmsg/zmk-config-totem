@@ -71,7 +71,7 @@ test('Shamal2 keeps Shamal letters and uses Rolio thumbs and outer keys', () => 
   assert.match(keymap, /s2_bspc_del: s2_bspc_del \{[^}]*bindings = <&mt LC\(BSPC\) BSPC>, <&mt LC\(DEL\) DEL>;[^}]*mods = <\(MOD_LCTL\|MOD_RCTL\)>;/);
   assert.equal(s2[19], '&kp P');
   assert.equal(s2[20], '&kp LSHIFT');
-  assert.equal(s2[31], '&kp SQT');
+  assert.equal(s2[31], '&kp RSHIFT');
   assert.deepEqual(s2.slice(32), ['&kp LGUI', '&kp LCTRL', '&lt S2_FKEYS ENTER', '&lt S2_NUM SPACE', '&s2_sym_num', '&kp LALT']);
   // A locked number pad can always be left from the same thumb key.
   assert.equal(byName.s2_numpad[36], '&tog S2_NUM');
