@@ -425,7 +425,7 @@
             bindings = <
                                           &kp Q                         &kp W                         &kp E                         &kp R                         &kp T                         &kp Y                         &kp U                         &kp I                         &kp O                         &s2_bspc_del
                                           &kp A                         &kp S                         &kp D                         &kp F                         &kp G                         &kp H                         &kp J                         &kp K                         &kp L                         &kp P
-            &kp LSHIFT                    &kp Z                         &kp X                         &kp C                         &kp V                         &kp B                         &kp N                         &kp M                         &kp COMMA                     &kp DOT                       &kp FSLH                      &kp RSHIFT
+            &kp LSHIFT                    &kp Z                         &kp X                         &kp C                         &kp V                         &kp B                         &kp N                         &kp M                         &kp COMMA                     &kp DOT                       &kp FSLH                      &mt RSHIFT SEMI
                                                                                                       &kp LGUI                      &kp LCTRL                     &lt S2_FKEYS ENTER            &lt S2_NUM SPACE              &s2_sym_num                   &kp LALT
             >;
         };

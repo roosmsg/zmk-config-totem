@@ -110,13 +110,14 @@ Bron Rolio: [RolioFirmware](https://github.com/MickiusMousius/RolioFirmware),
 - **Letters en combo's** zijn die van Shamal QWERTY. De Shamal-combo's van de basislaag
   werken ook in S2 Base; de D+F-Backspace-combo werkt zoals Rolio's Backspace:
   tikken = Backspace, vasthouden = Ctrl+Backspace (woord wissen).
-- **Buitenste toetsen**: links Shift, rechts Shift. ' typ je met de combo , + . (Shamal).
+- **Buitenste toetsen**: links Shift. Rechts: vasthouden = Shift, tikken = `;`
+  (met linker Shift vast: `:`). ' typ je met de combo , + . (Shamal).
 - **Rechtsboven** (de P-positie): Backspace/Delete in één toets:
   | | Tikken | Vasthouden |
   | --- | --- | --- |
   | zonder Ctrl | Backspace | Ctrl+Backspace (woorden terug wissen) |
   | met Ctrl | Delete | Ctrl+Delete (woorden vooruit wissen) |
-  P staat op de plek van ; (in Shamal2 zit ; daardoor niet meer op de basislaag).
+  P staat op de plek waar eerst `;` zat; `;` zit nu onder de rechter Shift (tikken).
 - **Duimen** (links → rechts): Win, Ctrl, *tik Enter / houd F-toetsen+navigatie*,
   *tik Spatie / houd Numpad*, *tik of houd Symbolen / dubbeltik Numpad aan-uit*, Alt.
 - **Lagen**: S2 Symbols, S2 Number Pad, S2 F-keys/Nav en S2 Settings. Rolio's 46 toetsen

@@ -17,7 +17,7 @@ export const s2BaseOverrides = {
   9: '&s2_bspc_del',
   19: '&kp P', // P moved here from position 9 (replaces ;)
   20: '&kp LSHIFT', // Rolio outer column: Shift
-  31: '&kp RSHIFT', // right Shift (Rolio had ' here; ' stays on the , + . combo)
+  31: '&mt RSHIFT SEMI', // hold right Shift, tap ; (with the other Shift held: :)
   32: '&kp LGUI',
   33: '&kp LCTRL',
   34: '&lt S2_FKEYS ENTER', // Rolio: tap Enter, hold F-keys/navigation
