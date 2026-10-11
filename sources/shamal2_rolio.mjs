@@ -12,7 +12,7 @@ const ___ = '&trans';
 // Base: positions 0-19 and 21-30 take Shamal's letters (filled in by the
 // generator); only the outer keys and thumbs below differ from Shamal.
 export const s2BaseOverrides = {
-  9: '&mt DEL BSPC', // tap Backspace, hold Delete (replaces P)
+  9: '&mt LC(BSPC) BSPC', // Rolio: tap Backspace, hold Ctrl+Backspace (replaces P)
   19: '&kp P', // P moved here from position 9 (replaces ;)
   20: '&kp LSHIFT', // Rolio outer column: Shift
   31: '&kp SQT', // Rolio outer column: '
