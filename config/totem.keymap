@@ -140,11 +140,20 @@
             tapping-term-ms = <300>;
             bindings = <&mo S2_SYMBOLS>, <&tog S2_NUM>;
         };
+        s2_erase: s2_erase {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "S2 Erase (tap / hold)";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <350>;
+            quick-tap-ms = <250>;
+            bindings = <&kp>, <&kp>;
+        };
         s2_bspc_del: s2_bspc_del {
             compatible = "zmk,behavior-mod-morph";
             display-name = "S2 Backspace / Ctrl: Delete";
             #binding-cells = <0>;
-            bindings = <&mt LC(BSPC) BSPC>, <&mt LC(DEL) DEL>;
+            bindings = <&s2_erase LC(BSPC) BSPC>, <&s2_erase LC(DEL) DEL>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
     };
@@ -262,7 +271,7 @@
             layers = <S2_BASE>;
                 };
         s2_combo_backspace {
-            bindings = <&mt LC(BSPC) BSPC>;
+            bindings = <&s2_erase LC(BSPC) BSPC>;
             key-positions = <12 13>;
             timeout-ms = <50>;
             layers = <S2_BASE>;

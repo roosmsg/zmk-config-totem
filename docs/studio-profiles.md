@@ -117,6 +117,8 @@ Bron Rolio: [RolioFirmware](https://github.com/MickiusMousius/RolioFirmware),
   | --- | --- | --- |
   | zonder Ctrl | Backspace | Ctrl+Backspace (woorden terug wissen) |
   | met Ctrl | Delete | Ctrl+Delete (woorden vooruit wissen) |
+  Vasthouden telt pas na 350 ms (ook als je intussen een andere toets indrukt); tik en
+  meteen weer vasthouden geeft herhalende Backspace per letter. Hetzelfde geldt voor D+F.
   P staat op de plek waar eerst `;` zat; `;` zit nu onder de rechter Shift (tikken).
 - **Duimen** (links → rechts): Win, Ctrl, *tik Enter / houd F-toetsen+navigatie*,
   *tik Spatie / houd Numpad*, *tik of houd Symbolen / dubbeltik Numpad aan-uit*, Alt.

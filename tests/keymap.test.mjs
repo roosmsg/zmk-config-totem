@@ -68,7 +68,9 @@ test('Shamal2 keeps Shamal letters and uses Rolio thumbs and outer keys', () => 
   for (let i = 0; i < 32; i++) if (![9, 19, 20, 31].includes(i)) assert.equal(s2[i], sh[i], 'letter position ' + i);
   assert.equal(s2[9], '&s2_bspc_del');
   // Without Ctrl: Rolio Backspace. With Ctrl: Delete (tap) / Ctrl+Delete (hold).
-  assert.match(keymap, /s2_bspc_del: s2_bspc_del \{[^}]*bindings = <&mt LC\(BSPC\) BSPC>, <&mt LC\(DEL\) DEL>;[^}]*mods = <\(MOD_LCTL\|MOD_RCTL\)>;/);
+  assert.match(keymap, /s2_bspc_del: s2_bspc_del \{[^}]*bindings = <&s2_erase LC\(BSPC\) BSPC>, <&s2_erase LC\(DEL\) DEL>;[^}]*mods = <\(MOD_LCTL\|MOD_RCTL\)>;/);
+  // Erasing words needs a deliberate hold: not ZMK's eager 200 ms hold-preferred &mt.
+  assert.match(keymap, /s2_erase: s2_erase \{[^}]*flavor = "tap-preferred";\s*tapping-term-ms = <350>;\s*quick-tap-ms = <250>;/);
   assert.equal(s2[19], '&kp P');
   assert.equal(s2[20], '&kp LSHIFT');
   assert.equal(s2[31], '&mt RSHIFT SEMI');
@@ -89,5 +91,5 @@ test('Shamal2 shares the Shamal base combos, with Rolio word-delete Backspace', 
     const shBody = keymap.match(new RegExp(`sh_combo_${name} \\{([^]*?)\\};`))[1];
     assert.equal(positions(body), positions(shBody), name);
   }
-  assert.match(combos.find(c => c[1] === 'backspace')[2], /bindings = <&mt LC\(BSPC\) BSPC>/);
+  assert.match(combos.find(c => c[1] === 'backspace')[2], /bindings = <&s2_erase LC\(BSPC\) BSPC>/);
 });

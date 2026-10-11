@@ -70,5 +70,5 @@ export const s2Settings = [
 // Shamal combos also apply to Shamal2's base layer. Rolio's Backspace key
 // (tap Backspace, hold Ctrl+Backspace) lives on the D+F Backspace combo.
 export const s2ComboOverrides = {
-  backspace: '&mt LC(BSPC) BSPC',
+  backspace: '&s2_erase LC(BSPC) BSPC',
 };
